@@ -1,22 +1,23 @@
 const Game = require("./Game");
 const Player = require("./Player");
 
-const Pete = new Player("Pete");
-const Mike = new Player("Mike");
+const Yusuf = new Player("Yusuf");
+const John = new Player("John");
 const Poker = new Game();
 
-Poker.join(Pete);
-Poker.join(Mike);
+Poker.join(Yusuf);
+Poker.join(John);
 
-Pete.wins(20);
+Yusuf.wins(20);
 
-Mike.wins(30);
-Mike.wins(40);
-Mike.wins(40);
-Mike.wins(40);
+John.wins(30);
+John.wins(40);
+John.wins(40);
+John.loses(20);
+John.wins(40);
 
-Pete.wins(1000);
-Pete.loses(1000);
+Yusuf.wins(1000);
+Yusuf.loses(100);
 
 console.log("Scoreboard: ", Poker.scores());
 console.log(
