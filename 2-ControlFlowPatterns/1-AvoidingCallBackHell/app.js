@@ -11,10 +11,12 @@ readdir(inbox, (error, files) => {
   files.forEach((file) => {
     readFile(join(inbox, file), "utf8", (error, data) => {
       if (error) return console.log("Error: File error");
-      writeFile(join(outbox, file), reverseText(data), (error) => {
-        if (error) return console.log("Error: File could not be saved!");
-        console.log(`${file} was successfully saved in the outbox!`);
-      });
+      else {
+        writeFile(join(outbox, file), reverseText(data), (error) => {
+          if (error) return console.log("Error: File could not be saved!");
+          console.log(`${file} was successfully saved in the outbox!`);
+        });
+      }
     });
   });
 });
