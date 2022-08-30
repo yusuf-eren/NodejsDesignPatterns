@@ -5,10 +5,7 @@ class Laptop {
       model,
       processor,
       RAM,
-      width,
-      height,
-      depth,
-      resolution,
+      screen,
     };
   }
   powerOn() {
