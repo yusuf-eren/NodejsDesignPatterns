@@ -1,5 +1,5 @@
 class Laptop {
-  constructor(serialNum, model, processor, RAM, width, height, depth, screen) {
+  constructor(serialNum, model, processor, RAM, screen) {
     this.serialNum = serialNum;
     this.configuration = {
       model,
@@ -9,7 +9,7 @@ class Laptop {
     };
   }
   powerOn() {
-    console.log(`System is waking up... (${this.model})`);
+    console.log(`System is waking up... ${this.configuration.model}`);
   }
   displayConfig() {
     console.log(this.configuration);
