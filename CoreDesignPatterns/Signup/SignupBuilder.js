@@ -1,4 +1,4 @@
-const Signup = require('./Signup');
+const Signup = require("./Signup");
 
 class SignupBuilder {
   constructor(name, email, age) {
