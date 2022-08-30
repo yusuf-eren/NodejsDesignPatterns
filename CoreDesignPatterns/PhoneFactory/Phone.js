@@ -1,13 +1,13 @@
 class Phone {
   constructor(
     serialNum,
-    model = 'Generic',
-    processor = 'Generic',
-    RAM = '2 Gb',
+    model = "Generic",
+    processor = "Generic",
+    RAM = "2 Gb",
     width = 67.3,
     height = 138.4,
     depth = 7.3,
-    resolution = '750 x 1334'
+    resolution = "750 x 1334"
   ) {
     this.serialNum = serialNum;
     this.configuration = {
@@ -17,8 +17,8 @@ class Phone {
       width,
       height,
       depth,
-      resolution
-    }
+      resolution,
+    };
   }
   dial(num) {
     console.log(`Now dialing ${num}...`);

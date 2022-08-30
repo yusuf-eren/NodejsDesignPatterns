@@ -1,20 +1,19 @@
-const iPhoneXR = require('./iPhoneXR');
-const iPhoneXS = require('./iPhoneXS');
-const iPhoneXSMax = require('./iPhoneXSMax');
+const iPhoneXR = require("./iPhoneXR");
+const iPhoneXS = require("./iPhoneXS");
+const iPhoneXSMax = require("./iPhoneXSMax");
 
 class iPhoneFactory {
   create(type, serialNum) {
     switch (type) {
-      case 'iPhone Xr':
+      case "iPhone Xr":
         return new iPhoneXR(serialNum);
-      case 'iPhone Xs':
+      case "iPhone Xs":
         return new iPhoneXS(serialNum);
-      case 'iPhone Xs Max':
+      case "iPhone Xs Max":
         return new iPhoneXSMax(serialNum);
-      default:
-        {
-          console.log('Unknown iPhone type...');
-        }
+      default: {
+        console.log("Unknown iPhone type...");
+      }
     }
   }
 }
