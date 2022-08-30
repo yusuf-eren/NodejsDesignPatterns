@@ -1,6 +1,6 @@
-const fruits = ["Apples", "Oranges", "Kiwi", "Strawberries"];
+const fruits = ["Apples", "Oranges", "Kiwi", "Strawberries", "Wow That was a Cool Loop!"];
 
-function* fruitShop() {
+function *fruitShop() {
   for (const fruit of fruits) {
     yield fruit;
   }
