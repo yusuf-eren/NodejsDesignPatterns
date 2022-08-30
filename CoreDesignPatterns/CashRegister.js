@@ -15,7 +15,7 @@ const CashRegister = {
   },
   total() {
     return cash;
-  }
-}
+  },
+};
 
 module.exports = CashRegister;

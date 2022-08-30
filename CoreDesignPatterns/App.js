@@ -1,5 +1,5 @@
-const x = require('./CashRegister');
-const x0 = require('./CashRegister');
+const x = require("./CashRegister");
+const x0 = require("./CashRegister");
 
 x.credit(25);
 x.credit(35);
