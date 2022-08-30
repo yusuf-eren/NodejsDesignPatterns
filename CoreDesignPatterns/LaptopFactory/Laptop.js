@@ -1,14 +1,5 @@
-class Phone {
-  constructor(
-    serialNum,
-    model,
-    processor,
-    RAM,
-    width,
-    height,
-    depth,
-    resolution
-  ) {
+class Laptop {
+  constructor(serialNum, model, processor, RAM, width, height, depth, screen) {
     this.serialNum = serialNum;
     this.configuration = {
       model,
@@ -20,12 +11,12 @@ class Phone {
       resolution,
     };
   }
-  dial(num) {
-    console.log(`Now dialing ${num}...`);
+  powerOn() {
+    console.log(`System is waking up... (${this.model})`);
   }
   displayConfig() {
     console.log(this.configuration);
   }
 }
 
-module.exports = Phone;
+module.exports = Laptop;
