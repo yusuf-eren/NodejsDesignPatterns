@@ -1,6 +1,4 @@
-const {
-  randomBytes
-} = require('crypto');
+const { randomBytes } = require("crypto");
 
 class User {
   constructor(name, email, age, photo) {
@@ -20,7 +18,7 @@ class User {
       this._setPhoto();
     }
     console.log(`- ${this.name} signed up as a new user!`);
-    return randomBytes(12).toString('hex');
+    return randomBytes(12).toString("hex");
   }
 }
 

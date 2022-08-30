@@ -1,12 +1,5 @@
 class UserPref {
-  constructor(
-    userId,
-    nickname,
-    favouriteTopics,
-    isSME,
-    isModerator,
-    isAdmin
-  ) {
+  constructor(userId, nickname, favouriteTopics, isSME, isModerator, isAdmin) {
     return new Promise((resolve, reject) => {
       this.userId = userId;
 
@@ -37,11 +30,11 @@ class UserPref {
     console.log(`- Nickname (${nickname}) set...`);
   }
   _favTopics(topics) {
-    console.log(`- User favourite topics (${topics.join(',')}) subscribed!`);
+    console.log(`- User favourite topics (${topics.join(",")}) subscribed!`);
   }
   _setSME(topics) {
     if (topics) {
-      console.log(`- User is now an SME for ${topics.join(',')}...`);
+      console.log(`- User is now an SME for ${topics.join(",")}...`);
     }
   }
   _isModerator(opt) {
@@ -50,7 +43,7 @@ class UserPref {
     }
   }
   _isAdmin() {
-    console.log('- User is now an Administrator!');
+    console.log("- User is now an Administrator!");
   }
 }
 

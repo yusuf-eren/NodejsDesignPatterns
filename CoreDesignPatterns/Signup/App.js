@@ -6,4 +6,5 @@ new SignupBuilder("Yusuf Eren", "erenyusuf170@gmail.com", 20)
   .setPhoto("yusuf_eren.jpg")
   .setNick("yusuf_eren")
   .setAdmin()
+  .setTopics(["Node.js","Express"])
   .create();
