@@ -1,0 +1,45 @@
+{
+  "version": 3,
+  "sources": [
+    "CurrencyConverter.js",
+    "app.js"
+  ],
+  "names": [
+    "CurrencyConverter",
+    "base",
+    "to",
+    "target",
+    "name",
+    "descriptor",
+    "fn",
+    "value",
+    "args",
+    "result",
+    "call",
+    "currencyRate",
+    "axios",
+    "method",
+    "redirect",
+    "headers",
+    "apikey",
+    "data",
+    "toUpperCase",
+    "error",
+    "console",
+    "log",
+    "Cost",
+    "compute",
+    "qty",
+    "price",
+    "Promise",
+    "resolve",
+    "then"
+  ],
+  "mappings": ";AAgCeA,aAAAA,OAAAA,eAAAA,QAAAA,aAAAA,CAAAA,OAAAA,IAAAA,QAAAA,aAAAA,EAhCf,IAAA,EAAA,EAAA,QAAA,UAgCeA,SAAAA,EAAAA,GAAAA,OAAAA,GAAAA,EAAAA,WAAAA,EAAAA,CAAAA,QAAAA,GA9Bf,MAAMA,EAAoB,CAACC,EAAMC,KACxB,SAAUC,EAAQC,EAAMC,GAC7B,IACE,MAAMC,EAAKD,EAAWE,MAoBtB,OAnBAF,EAAWE,MAAQ,UAAUC,KAE3B,MAAMC,QAAeH,EAAGI,KAAK,QAASF,GAChCG,QAAqB,EAAAC,EAAA,sDACoBV,UAAWD,IACxD,CACEY,OAAQ,MACRC,SAAU,SACVC,QAAS,CACPC,OAAQ,sCAKd,aAAcL,EAAaM,QACtBf,EAAGgB,iBAAiBjB,EAAKiB,iBADhB,IAEHT,KAGNJ,EACP,MAAOc,GACPC,QAAQC,IAAIF,MAKHnB,IAAAA,EAAAA,EAAAA,QAAAA,QAAAA;;ACtBf,aAAA,IAAA,EAAA,EAAA,EAAA,EAAA,QAAA,oDAVA,EAAA,EAAA,QAAA,wBAUA,SAAA,EAAA,GAAA,OAAA,GAAA,EAAA,WAAA,EAAA,CAAA,QAAA,GARMsB,IAAAA,GACH,GAAA,EAAAtB,EAAA,SAAkB,MAAO,OAD5B,EAAA,MAEEuB,QAAQC,EAAKC,GACX,OAAOC,QAAQC,QAAQH,EAAMC,MAHtB,EAAA,EAAA,SAAA,EAAA,UAAA,UAAA,CAAA,GAAA,OAAA,yBAAA,EAAA,UAAA,WAAA,EAAA,WAAA,GAOX,MAAMA,EAAQ,IAAIH,EAClBG,EAAMF,QAAQ,GAAI,GAAGK,KAAMnB,GAAWW,QAAQC,IAAIZ",
+  "file": "app.js",
+  "sourceRoot": "..",
+  "sourcesContent": [
+    "import axios from \"axios\";\n\nconst CurrencyConverter = (base, to) => {\n  return function (target, name, descriptor) {\n    try {\n      const fn = descriptor.value; // The original function\n      descriptor.value = async (...args) => {\n        // Define the decorator\n        const result = await fn.call(this, ...args);\n        const currencyRate = await axios(\n          `https://api.apilayer.com/fixer/convert?to=${to}&from=${base}`,\n          {\n            method: \"GET\",\n            redirect: \"follow\",\n            headers: {\n              apikey: \"oEXrPI6wdB95Fk2EG82ifjaENyPioN1E\",\n            },\n          }\n        );\n\n        return await (currencyRate.data[\n          `${to.toUpperCase()}_${base.toUpperCase()}`\n        ][\"val\"] * result);\n      };\n\n      return descriptor;\n    } catch (error) {\n      console.log(error);\n    }\n  };\n};\n\nexport default CurrencyConverter;\n",
+    "import CurrencyConverter from \"./CurrencyConverter\";\n\nclass Cost {\n  @CurrencyConverter(\"INR\", \"USD\")\n  compute(qty, price) {\n    return Promise.resolve(qty * price);\n  }\n}\n\nconst price = new Cost();\nprice.compute(20, 5).then((result) => console.log(result));\n"
+  ]
+}

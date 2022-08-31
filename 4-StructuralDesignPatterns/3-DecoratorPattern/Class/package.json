@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type":"module",
   "scripts": {
     "dev": "parcel --target=node app.js",
     "build": "parcel build --target=node app.js"

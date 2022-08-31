@@ -7,16 +7,27 @@ const CurrencyConverter = (base, to) => {
       descriptor.value = async (...args) => {
         // Define the decorator
         const result = await fn.call(this, ...args);
-        const currencyRate = await axios(`https://free.currencyconverterapi.com/api/v6/convert?q=${to.toUpperCase()}_${base.toUpperCase()}&compact=y`);
+        const currencyRate = await axios(
+          `https://api.apilayer.com/fixer/convert?to=${to}&from=${base}`,
+          {
+            method: "GET",
+            redirect: "follow",
+            headers: {
+              apikey: "oEXrPI6wdB95Fk2EG82ifjaENyPioN1E",
+            },
+          }
+        );
 
-        return await (currencyRate.data[`${to.toUpperCase()}_${base.toUpperCase()}`]["val"] * result);
-      }
+        return await (currencyRate.data[
+          `${to.toUpperCase()}_${base.toUpperCase()}`
+        ]["val"] * result);
+      };
 
       return descriptor;
     } catch (error) {
       console.log(error);
     }
-  }
-}
+  };
+};
 
 export default CurrencyConverter;

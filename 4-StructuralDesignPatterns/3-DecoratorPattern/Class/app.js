@@ -8,4 +8,4 @@ class Cost {
 }
 
 const price = new Cost();
-price.compute(20, 5).then(result => console.log(result));
+price.compute(20, 5).then((result) => console.log(result));
