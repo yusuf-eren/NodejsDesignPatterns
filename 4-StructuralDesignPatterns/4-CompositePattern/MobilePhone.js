@@ -7,7 +7,9 @@ class MobilePhone extends Item {
     this.cost = cost;
   }
   getDetails() {
-    console.log(`${this.getName()} :: ${this.color} color, priced at INR ${this.cost}`);
+    console.log(
+      `${this.getName()} :: ${this.color} color, priced at INR ${this.cost}`
+    );
   }
 }
 

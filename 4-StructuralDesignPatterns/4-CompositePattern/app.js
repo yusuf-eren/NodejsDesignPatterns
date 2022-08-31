@@ -16,8 +16,7 @@ const DellInspiron = new Laptop("Dell", "Inspiron 5370", 63000);
 // Laptop Catalog
 const Laptops = new Catalog("** Laptops **");
 Laptops.add(MacbookPro).add(DellInspiron);
-
-//Laptops.getDetails();
+Laptops.getDetails();
 
 // Shopping Catalog
 const PrimeProducts = new Catalog("*** Prime Products 2019 ***");

@@ -11,7 +11,7 @@ class Catalog extends Item {
   }
   getDetails() {
     console.log(this.getName().toUpperCase());
-    this.collection.forEach(item => item.getDetails());
+    this.collection.forEach((item) => item.getDetails());
   }
 }
 
